@@ -44,7 +44,7 @@ def standardize_text(text): #Chuẩn hóa văn bản, xử lý các lỗi font v
 
     text = re.sub(r'[ \t]+', ' ', text).strip()#Thay thế nhiều khoảng trắng/tab liền nhau thành 1 khoảng trắng, và xóa khoảng trắng ở 2 đầu chuỗi
 
-    text = re.sub(r'[^\w\s\.\,\;\n]', ' ', text)#(Tùy chọn) Bỏ comment dòng này nếu muốn loại bỏ sạch các ký tự đặc biệt, chỉ giữ lại chữ, số, khoảng trắng và các dấu . , ;
+    text = re.sub(r'[^\w\s\.\,\;\n%\-\/\(\)]', ' ', text)#(Tùy chọn) Bỏ comment dòng này nếu muốn loại bỏ sạch các ký tự đặc biệt, chỉ giữ lại chữ, số, khoảng trắng và các dấu . , ; % - / ( )
 
     return text #Trả về kết quả chuỗi văn bản đã được chuẩn hóa hoàn tất
 
@@ -59,7 +59,8 @@ def parse_law_text_to_chunks(text):  # ham chinh, nhan van ban da chuan hoa, tra
     MAU_CHUONG = re.compile(r"^Chương\s+([IVXLCDM]+)$")                   # mau nhan dien dong "Chương I", "Chương II"... KHONG co dau cham hay ten tren cung dong
     MAU_DIEU = re.compile(r"^Điều\s+(\d+)\.\s*(.+)$")                     # mau nhan dien dong "Điều 6. Ten dieu", nhom 1 la so dieu, nhom 2 la ten
     MAU_KHOAN = re.compile(r"^(\d+)\.\s*(.+)$")                           # mau nhan dien mot Khoan dang "1. Noi dung", dau cham khong bi standardize_text xoa
-    MAU_DIEM = re.compile(r"^([a-zđươ]{1,2})\s{2,}(.+)$", re.IGNORECASE)  # mau nhan dien Diem: sau khi mat dau ")" thi "a) Noi dung" thanh "a  Noi dung" (2 khoang trang)
+    MAU_DIEM = re.compile(r"^([a-zđươ]{1,2})\)\s*(.+)$", re.IGNORECASE)
+    MAU_DIEM_CU = re.compile(r"^([a-zđươ]{1,2})\s{2,}(.+)$", re.IGNORECASE)
 
     rows = []                       # list chua cac dict, moi dict la 1 dong ket qua cuoi cung (1 Khoan/Diem/cau mo dau)
     chuong_id = None                # so hieu Chuong dang xu ly (vd "I", "II"), cap nhat khi gap tieu de Chuong moi
@@ -117,7 +118,7 @@ def parse_law_text_to_chunks(text):  # ham chinh, nhan van ban da chuan hoa, tra
         if dieu_id is None:                                 # neu chua tung gap Dieu nao (dang o phan mo dau van ban)
             continue                                         # bo qua hoan toan doan nay
 
-        m_diem = MAU_DIEM.match(doan)                       # kiem tra doan co phai mot Diem khong
+        m_diem = MAU_DIEM.match(doan) or MAU_DIEM_CU.match(doan)                     # kiem tra doan co phai mot Diem khong
         m_khoan = MAU_KHOAN.match(doan)                     # kiem tra doan co phai mot Khoan khong
 
         if (m_diem or m_khoan) and intro_buf:               # neu sap ghi Khoan/Diem DAU TIEN ma con cau mo dau chua ghi
