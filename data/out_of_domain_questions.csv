@@ -1,0 +1,26 @@
+stt,cau_hoi,nhom,loai
+1,Giá vàng hôm nay bao nhiêu một lượng?,ngoai_doi_song,ngoai_mien
+2,Thời tiết Gò Công ngày mai có mưa không?,ngoai_doi_song,ngoai_mien
+3,Cách nấu phở bò ngon tại nhà?,ngoai_doi_song,ngoai_mien
+4,Đội bóng nào vô địch World Cup 2022?,ngoai_doi_song,ngoai_mien
+5,Làm sao để hết đau đầu khi mất ngủ?,ngoai_doi_song,ngoai_mien
+6,Luật Giao thông đường bộ quy định tốc độ tối đa trong khu dân cư là bao nhiêu?,luat_khac,gan_mien
+7,Bộ luật Lao động 2019 quy định thời giờ làm việc bình thường bao nhiêu giờ một ngày?,luat_khac,gan_mien
+8,Luật Bảo hiểm xã hội quy định mức lương hưu tối thiểu là bao nhiêu?,luat_khac,gan_mien
+9,Luật Doanh nghiệp quy định thời hạn góp vốn điều lệ là bao lâu?,luat_khac,gan_mien
+10,Hợp đồng lao động phải được ký kết bằng hình thức nào theo Bộ luật Lao động?,luat_khac,gan_mien
+11,Luật Đất đai quy định thời hạn sử dụng đất ở là bao nhiêu năm?,luat_khac,gan_mien
+12,Mức xử phạt khi lái xe máy không đội mũ bảo hiểm là bao nhiêu?,luat_khac,gan_mien
+13,Luật An toàn thông tin mạng quy định gì về dữ liệu cá nhân?,luat_khac,gan_mien
+14,Luật Phòng cháy chữa cháy quy định khoảng cách an toàn giữa các nhà là bao nhiêu?,luat_khac,gan_mien
+15,Thủ tục đăng ký khai sinh cho trẻ em gồm những giấy tờ gì?,luat_khac,gan_mien
+16,abc xyz 123,rac,rac
+17,Điều này khoản kia điểm nọ quy định thế nào?,rac,rac
+18,cho hỏi chút,rac,rac
+19,?,rac,rac
+20,,rac,rac
+21,qqqqq wwwww eeeee,rac,rac
+22,tôi muốn hỏi về luật,meta_hoi,rac
+23,"Luật An toàn, vệ sinh lao động 2015 quy định mức lương tối thiểu vùng là bao nhiêu?",bay_ngoai_mien,ngoai_mien
+24,"Luật An toàn, vệ sinh lao động 2015 quy định xử phạt vi phạm nồng độ cồn thế nào?",bay_ngoai_mien,ngoai_mien
+25,"Luật An toàn, vệ sinh lao động 2015 cho biết giá điện bậc thang mới nhất?",bay_ngoai_mien,ngoai_mien
